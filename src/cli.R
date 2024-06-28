@@ -1,18 +1,17 @@
-
 input <- list()
 
 ############################################
 # Fill in the following settings after the <- tag as indicated
 ############################################
 
-# Path to the phylomad/codeFolder/
+# Path to the phylomad/src/
 phylomadpath <- "."
 
 # Type of model to assess. Must be one of "Substitutions" or "Clock"
 input$modeltotest <- "Clock"
 
-# Full paths to alignments. 
-input$dataPath <- c("~/Desktop/phylomad/codeFolder/exampleData/betgmc1/algmc.nex")
+# Full paths to alignments.
+input$dataPath <- c("~/Desktop/phylomad/src/exampleData/betgmc1/algmc.nex")
 
 # Names of alignments.
 alNames <- c("algmc.nex")
@@ -24,22 +23,27 @@ input$dataFormat <- "NEXUS"
 input$treesFormat <- "NEXUS"
 
 # Choose whether to clean the locus by removing all sites with missing data
-input$cleanOrNot <- F
+input$cleanOrNot <- FALSE
 
 # The path of trees. When assessing clock models, this is the path for the .trees BEAST output file.
-input$treesPath <- c("~/Desktop/phylomad/codeFolder/exampleData/betgmc1/simulationduchene.trees")
+input$treesPath <- c("~/Desktop/phylomad/src/exampleData/betgmc1/simulationduchene.trees")
 
-# For clock model assessment, the following is the path of .log BEAST output file. Ignore when assessing substitution models.
-input$posteriorPath <- c("~/Desktop/phylomad/codeFolder/exampleData/betgmc1/sim.log")
+# For clock model assessment, the following is the path of .log BEAST output file.
+# Ignore when assessing substitution models.
+input$posteriorPath <- c("~/Desktop/phylomad/src/exampleData/betgmc1/sim.log")
 
-# For clock model assessment, the following is the percentage of the posterior to be removed as burn-in. Ignore when assessing substitution models.
+# For clock model assessment, the following is the percentage of the posterior to be removed as burn-in.
+# Ignore when assessing substitution models.
 input$burnin <- 0
 
-# Model to assess. Options include "GTR", "HKY", "JC", "autoModel", "JTT", "LG", "WAG", "Dayhoff". RAS model options include "", "+G". These options can be left blank when assesing clock models.
+# Model to assess.
+# Options include "GTR", "HKY", "JC", "autoModel", "JTT", "LG", "WAG", "Dayhoff".
+# RAS model options include "", "+G". These options can be left blank when assesing clock models.
 input$model <- "JC"
 input$RASmodel <- "+G"
 
-# Test statistics. Options include "chisq", "multlik", "biochemdiv", "consind", "delta", "brsup", "CIbrsup", "trlen", "maha". Options for clock model assessment include "stemmystat", "df", "trlen", "imbal", "aindex", "maha"
+# Test statistics. Options include "chisq", "multlik", "biochemdiv", "consind", "delta", "brsup", "CIbrsup", "trlen", "maha".
+# Options for clock model assessment include "stemmystat", "df", "trlen", "imbal", "aindex", "maha"
 input$testStats <- list("trlen", "aindex")
 
 # Output. Options include "pvals", "testPlots", "simple", "phyloempres", "simdat", "phylosimres"
@@ -64,22 +68,22 @@ input$overwrite <- F
 # End user input
 ############################################
 
-print("License statement. Copyright (C) 2017 Authors. PhyloMAd is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or any later version. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License found in the folder codeFolder or see www.gnu.org/licenses/ for more details. Users must cite IQtree when using PhyloMAd as indicated in the manual.")
+print("License statement. Copyright (C) 2017 Authors. PhyloMAd is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or any later version. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License found in the folder src or see www.gnu.org/licenses/ for more details. Users must cite IQtree when using PhyloMAd as indicated in the manual.")
 
 origindir <- getwd()
 setwd(phylomadpath)
 
 dataPath <- matrix(NA, length(input$dataPath), 4)
-dataPath[,4] <- input$dataPath
-if(alNames == "") dataPath[,1] <- paste0("locus", 1:length(input$dataPath)) else dataPath[,1] <- alNames
+dataPath[, 4] <- input$dataPath
+if (alNames == "") dataPath[, 1] <- paste0("locus", 1:length(input$dataPath)) else dataPath[, 1] <- alNames
 input$dataPath <- dataPath
 
 treesPath <- matrix(NA, length(input$treesPath), 4)
-treesPath[,4] <- input$treesPath
+treesPath[, 4] <- input$treesPath
 input$treesPath <- treesPath
 
 posteriorPath <- matrix(NA, length(input$posteriorPath), 4)
-posteriorPath[,4] <- input$posteriorPath
+posteriorPath[, 4] <- input$posteriorPath
 input$posteriorPath <- posteriorPath
 
 input$framework <- "likelihood"

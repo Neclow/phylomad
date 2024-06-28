@@ -9,5 +9,5 @@ if(!require(ggtern)) install.packages("ggtern", repos = "http://cran.us.r-projec
 if(!require(shinyBS)) install.packages("shinyBS", repos = "http://cran.us.r-project.org", dependencies = T)
 library(shiny)
 library(shinyBS)
-setwd("codeFolder")
+setwd("src")
 runApp(launch.browser=TRUE)

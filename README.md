@@ -1,5 +1,4 @@
-![software logo](codeFolder/www/phylomad.temp.png)
-
+![software logo](src/www/phylomad.temp.png)
 
 ## Basic features
 
@@ -21,11 +20,11 @@ PhyloMAd supports several of the most common nucleotide and amino-acid substitut
 
 PhyloMAd requires that the R statistical computing language is installed. R is freely available from the R project website.
 
-https://www.r-project.org/
+<https://www.r-project.org/>
 
 Download and unzip the PhyloMAd repository by clicking the following link:
 
-https://github.com/duchene/phylomad/archive/master.zip
+<https://github.com/duchene/phylomad/archive/master.zip>
 
 This can also be done by pressing the *Clone or download* button in github or by typing the following in a bash shell (if available and the machine has git installed).
 
@@ -67,19 +66,19 @@ You can go through the tabs before modifying the settings to make sure you under
 
 1. For a quick trial of the software, press *Browse* in the Data tab under the *Select nucleotide or amino acid alignment* header.
 
-Browse through your files into the *phylomad/codeFolder/exampleData/* folder, and select the data set called *example.covarion.longtips.nex*. If you have selected the file successfully, the PhyloMAd window should say *Upload complete*.
+Browse through your files into the *phylomad/src/exampleData/* folder, and select the data set called *example.covarion.longtips.nex*. If you have selected the file successfully, the PhyloMAd window should say *Upload complete*.
 
-![browseButton](codeFolder/www/browseButton.png)
+![browseButton](src/www/browseButton.png)
 
 2. You can now read through the other options without changing anything. Browse through each of the tabs entitled *Model*, *Test statistics*, and *Output*, making sure you understand what the settings mean, and referring to the manual for any further details.
 
-![tabs](codeFolder/www/tabs.png)
+![tabs](src/www/tabs.png)
 
 3. Once you get to the *Other options and START* tab, you can reduce the number of simulations to 40, since this is only a test run. Check whether your machine has multiple cores and increase the number in the corresponding section to 4 cores.
 
-Now press the *START ASSESSMENT* button. 
+Now press the *START ASSESSMENT* button.
 
-![startAssessment](codeFolder/www/startAssessment.png)
+![startAssessment](src/www/startAssessment.png)
 
 You can monitor the assessment in the shell (mac) or by checking the log file that is created in the main PhyloMAd folder (windows). Also check the output folder and make sure that data are being stored and removed as successive simulations are analyzed.
 
@@ -87,29 +86,29 @@ You can monitor the assessment in the shell (mac) or by checking the log file th
 
 In this example, the output folder was kept as the default. This means that the output will have been saved in the *outputFolder*, which is in the main PhyloMAd folder.
 
-Inside the output folder, there will be a separate folder containing the output for each locus for which the model was assessed. In the case of this example, there will be a single folder containing three files. 
+Inside the output folder, there will be a separate folder containing the output for each locus for which the model was assessed. In the case of this example, there will be a single folder containing three files.
 
-![outputFiles](codeFolder/www/outputFiles.png)
+![outputFiles](src/www/outputFiles.png)
 
 One is a PDF with histograms of the values of the test statistics calculated from simulated data, with the value calculated for the empirical data set shown in a red line. These graphics are useful for qualitative interpretation of the results. This qualitative interpretation is necessary for many of the test statistics until they are better understood.
 
-![exampleHist](codeFolder/www/exampleHist.png)
+![exampleHist](src/www/exampleHist.png)
 
 Next is a file with an interpretation of the test for five test statistics that are known to be sensitive to multiple sources of wrong inferences of tree topology and branch lengths. These recommendations come from a detailed previous simulations study. The test allows for interpretation of the results, according to the thresholds investigated in that study. Note that while the model might be adequate regarding each of these test statistics, it might still suffer an unknown type of bias. This means that the output should be placed in context of what each of these statistics describe. See manual for more details.
 
-![chisqResults](codeFolder/www/chisqResult.png)
+![chisqResults](src/www/chisqResult.png)
 
 In this example, the chi-squared statistic test tells us that the amount of compositional heterogeneity is unlikely to be of concern.
 
 The last file is a table that shows three values (rows) for each test statistic selected (columns). These three values include:
 
-- The tail area probability, which is the proportion of values calculated for simulations that are lower than the value calculated for the empirical data set; 
+- The tail area probability, which is the proportion of values calculated for simulations that are lower than the value calculated for the empirical data set;
 
 - The statistic calculated for the empirical data set;
 
 - The distace between the empirical data set and the mean of the simulated distribution in terms of the number of standard deviations of the distribution.
 
-![resultsTable](codeFolder/www/resultsTable.png)
+![resultsTable](src/www/resultsTable.png)
 
 This example shows that the multinomial statistic is not available for analysis. This is because this data set comes from a scenario with extremely long terminal branches. The high divergence among taxa has led to every site having a different pattern in every data set, so every simulated data set has the same multinomial likelihood as the empirical data set. This test statistic is therefore not useful in this scenario.
 
@@ -120,4 +119,4 @@ david.duchene[at]sund.ku.dk
 
 ## Licence
 
-Copyright 2017 by the PhyloMAd authors. The software PhyloMAd is distributed without warranty of any kind or support for previous versions. The authors will not be responsible for any damage resulting from the use of this software. The source and documentation are distributed under the GNU General Public License except where stated otherwise. See the copy of the GNU GPL license found in the *codeFolder* for further details.
+Copyright 2017 by the PhyloMAd authors. The software PhyloMAd is distributed without warranty of any kind or support for previous versions. The authors will not be responsible for any damage resulting from the use of this software. The source and documentation are distributed under the GNU General Public License except where stated otherwise. See the copy of the GNU GPL license found in the *src* for further details.
